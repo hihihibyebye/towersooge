@@ -39,7 +39,7 @@ function setup() {
     box23 = new Box(350,50,50,50);
     box24 = new Box(350,50,50,50);
     hexagoon = new Hexagoon(100,100,10,10);
-    roopie = new Roopie(hexagoon.body,{x:50,y:300});
+    roopie = new Roopie(hexagoon.body,{x:160,y:300});
 
 }
 
@@ -73,4 +73,12 @@ function draw() {
   box24.display();  
   hexagoon.display();
   drawSprites();
+}
+
+function mouseDragged(){
+  Matter.Body.setPosition(hexagoon.body, {x: mouseX , y: mouseY});
+}
+
+function mouseReleased(){
+  roopie.fly();
 }

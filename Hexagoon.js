@@ -13,6 +13,7 @@ class Hexagoon
         this.height = height;
         World.add(world,this.body)
         this.image = loadImage("polygon.png");
+        this.scale=(3);
     }
     display()
     {
