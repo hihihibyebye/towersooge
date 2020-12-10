@@ -44,7 +44,7 @@ function setup() {
 }
 
 function draw() {
-  background(255,255,255);
+  background("green");
   Engine.update(engine)
   platform1.display();
   box1.display();
