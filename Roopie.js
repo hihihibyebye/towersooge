@@ -6,7 +6,7 @@ class Roopie{
             stiffness: 0.04,
             length: 10
         }
-        this.pointB = pointB
+        this.pointB = pointB;
         this.roo = Constraint.create(options);
         World.add(world, this.roo);
     }
@@ -15,18 +15,18 @@ class Roopie{
         this.roo.bodyA = null;
     }
     display(){
-        rect(this.roo,200,20);
-        rect(this.roo,2,170,20);
+        //rect(this.roo,200,20);
+       //rect(this.roo,2,170,20);
         if(this.roo.bodyA){
             var pointA = this.roo.bodyA.position;
             var pointB = this.pointB;
             
-            push();
+            //push();
             strokeWeight(15);
             stroke("blue");
-            fill("red");
+
             line(pointB.x,pointB.y,pointA.x,pointA.y);
-            pop();
+            //pop();
         }
     }
     

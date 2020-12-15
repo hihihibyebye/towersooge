@@ -5,6 +5,13 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 
+function preload()
+{
+  polygonimg = loadImage("polygon.png");
+}
+
+
+
 function setup() {
   var canvas = createCanvas(1200,700);
     engine = Engine.create();
@@ -38,8 +45,10 @@ function setup() {
     box22 = new Box(350,50,50,50);
     box23 = new Box(350,50,50,50);
     box24 = new Box(350,50,50,50);
-    hexagoon = new Hexagoon(100,100,10,10);
-    roopie = new Roopie(hexagoon.body,{x:160,y:300});
+    //hexagoon = new Hexagoon(100,100,10,10);
+    ball = Bodies.circle(100,200,50);
+    World.add(world,ball);
+    roopie = new Roopie(this.ball,{x:200,y:200});
 
 }
 
@@ -70,13 +79,15 @@ function draw() {
   box21.display();  
   box22.display();  
   box23.display();  
-  box24.display();  
-  hexagoon.display();
+  box24.display();
+  imageMode(CENTER);
+  image(polygonimg,ball.position.x,ball.position.y,40,40);
+  roopie.display();
   drawSprites();
 }
 
 function mouseDragged(){
-  Matter.Body.setPosition(hexagoon.body, {x: mouseX , y: mouseY});
+ Matter.Body.setPosition(this.ball, {x: mouseX , y: mouseY});
 }
 
 function mouseReleased(){
